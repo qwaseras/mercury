@@ -1,0 +1,18 @@
+header {
+  padding: 0 50px 0 50px;
+  background-color: #323639;
+  height: 80px;
+  display: flex;
+  align-items: center; }
+  header img {
+    width: 100px;
+    float: left; }
+  header span {
+    color: white;
+    float: right;
+    margin: 5px; }
+  header .login-info {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }

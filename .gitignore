@@ -1,0 +1,8 @@
+# frontend
+frontend/node_modules
+
+#backend
+backend/config/database.yml
+backend/config/initializers/secret_token.rb
+.secret
+.byebug_history
