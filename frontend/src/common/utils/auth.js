@@ -1,26 +1,16 @@
 import jwtDecode from 'jwt-decode';
-import auth0 from 'auth0-js';
-import APIConfig from './APIConfig';
+import http from './http';
 
 const ID_TOKEN_KEY = 'id_token';
 const ACCESS_TOKEN_KEY = 'access_token';
 
-const SCOPE = 'openid profile email';
-
-const auth = new auth0.WebAuth({
-  clientID: APIConfig.clientID,
-  domain: APIConfig.clientDomain,
-});
-
-export function login(username, password) {
-  auth.authorize({
-    responseType: 'token id_token',
-    redirectUri: APIConfig.callback,
-    audience: APIConfig.audience,
-    scope: SCOPE,
-  });
+export async function login(username, password) {
+  const response = await http.post('/authenticate/', {
+    email: username,
+    password: password,
+  })
+  localStorage.setItem(ID_TOKEN_KEY, response.data.auth_token);
 }
-
 
 export function getUserEmail() {
   const jwt = jwtDecode(getIdToken());
@@ -31,7 +21,6 @@ export function getUserEmail() {
 export function logout() {
   clearIdToken();
   clearAccessToken();
-  auth.logout({returnTo: APIConfig.logout});
 }
 
 

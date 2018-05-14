@@ -1,10 +1,11 @@
 import axios from 'axios';
+import APIConfig from './APIConfig';
 import {getAccessToken} from './auth'
 
 function request(url, data, method) {
   return axios({
     method,
-    url: 'http://localhost:3001/' + url,
+    url:  APIConfig.apiUrl + url,
     data,
     headers: {'Authorization': 'Bearer ' + getAccessToken() }
   });
