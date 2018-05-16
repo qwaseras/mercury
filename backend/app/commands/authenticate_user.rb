@@ -1,13 +1,13 @@
 class AuthenticateUser
   prepend SimpleCommand
-  
+
   def initialize(email, password)
     @email = email
     @password = password
   end
 
   def call
-    JsonWebToken.encode(user_id: user.id) if user
+    JsonWebToken.encode(user_id: user.id, email: user.email) if user
   end
 
   private

@@ -4,7 +4,6 @@ import {Route, Switch, Redirect} from 'react-router';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Signin from './pages/Signin';
-import Callback from './pages/Callback';
 
 import {isLoggedIn} from './common/utils/auth';
 
@@ -23,6 +22,5 @@ export default ({dispatch, getState}) => (
         <Redirect to="/signin" />)}
     />
     <Route exact path="/signin" component={Signin} />
-    <Route exact path="/callback" component={Callback} />
   </Switch>
 );

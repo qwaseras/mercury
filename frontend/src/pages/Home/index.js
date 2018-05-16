@@ -9,7 +9,7 @@ export default class extends Component {
   render() {
     return (
       <div>
-        <Header/>
+        <Header history={this.props.history}/>
         <p>HOME</p>
         <button onClick={() => this.props.history.push('/dashboard')}>
         </button>
