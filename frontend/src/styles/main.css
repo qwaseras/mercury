@@ -1,4 +1,4 @@
-.login-page .auth-body, .sign-up-page .auth-body {
+.signin-page .auth-body, .signup-page .auth-body {
   position: absolute;
   top: -20px;
   left: -20px;
@@ -11,7 +11,7 @@
   -webkit-filter: blur(5px);
   z-index: 0; }
 
-.login-page .grad, .sign-up-page .grad {
+.signin-page .grad, .signup-page .grad {
   position: absolute;
   top: -20px;
   left: -20px;
@@ -24,31 +24,33 @@
   z-index: 1;
   opacity: 0.7; }
 
-.login-page .header, .sign-up-page .header {
+.signin-page .header, .signup-page .header {
   position: absolute;
   top: calc(50% - 35px);
   left: calc(50% - 255px);
   z-index: 2; }
 
-.login-page .header div, .sign-up-page .header div {
+.signin-page .header div, .signup-page .header div {
   float: left;
   color: #fff;
   font-family: 'Exo', sans-serif;
   font-size: 35px;
   font-weight: 200; }
 
-.login-page .header div span, .sign-up-page .header div span {
+.signin-page .header div span, .signup-page .header div span {
   color: #f00 !important; }
 
-.login-page .login, .sign-up-page .login {
+.signin-page .login, .signup-page .login {
   position: absolute;
-  top: calc(50% - 75px);
-  left: calc(50% - 50px);
-  height: 150px;
-  width: 350px;
+  top: calc(50% - 85px);
+  left: calc(50% - 10px);
+  height: auto;
+  width: 650px;
   padding: 10px;
   z-index: 2; }
-  .login-page .login input[type=text], .sign-up-page .login input[type=text] {
+  .signin-page .login input, .signin-page .login btn, .signup-page .login input, .signup-page .login btn {
+    margin: 10px 0; }
+  .signin-page .login input[type=text], .signup-page .login input[type=text] {
     width: 250px;
     height: 30px;
     background: transparent;
@@ -59,10 +61,10 @@
     font-size: 16px;
     font-weight: 400;
     padding: 4px; }
-    .login-page .login input[type=text]:focus, .sign-up-page .login input[type=text]:focus {
+    .signin-page .login input[type=text]:focus, .signup-page .login input[type=text]:focus {
       outline: none;
       border: 1px solid rgba(255, 255, 255, 0.9); }
-  .login-page .login input[type=password], .sign-up-page .login input[type=password] {
+  .signin-page .login input[type=password], .signup-page .login input[type=password] {
     width: 250px;
     height: 30px;
     background: transparent;
@@ -72,12 +74,11 @@
     font-family: 'Exo', sans-serif;
     font-size: 16px;
     font-weight: 400;
-    padding: 4px;
-    margin-top: 10px; }
-    .login-page .login input[type=password]:focus, .sign-up-page .login input[type=password]:focus {
+    padding: 4px; }
+    .signin-page .login input[type=password]:focus, .signup-page .login input[type=password]:focus {
       outline: none;
       border: 1px solid rgba(255, 255, 255, 0.9); }
-  .login-page .login button, .sign-up-page .login button {
+  .signin-page .login button, .signup-page .login button {
     width: 250px;
     height: 45px;
     background: #fff;
@@ -88,24 +89,26 @@
     font-family: 'Exo', sans-serif;
     font-size: 16px;
     font-weight: 400;
-    padding: 6px;
-    margin-top: 10px; }
-    .login-page .login button:hover, .sign-up-page .login button:hover {
+    padding: 6px; }
+    .signin-page .login button:hover, .signup-page .login button:hover {
       opacity: 0.8; }
-    .login-page .login button:active, .sign-up-page .login button:active {
+    .signin-page .login button:active, .signup-page .login button:active {
       opacity: 0.6; }
-    .login-page .login button:focus, .sign-up-page .login button:focus {
+    .signin-page .login button:focus, .signup-page .login button:focus {
       outline: none; }
 
-.login-page ::-webkit-input-placeholder, .sign-up-page ::-webkit-input-placeholder {
+.signin-page ::-webkit-input-placeholder, .signup-page ::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.6); }
 
-.login-page ::-moz-input-placeholder, .sign-up-page ::-moz-input-placeholder {
+.signin-page ::-moz-input-placeholder, .signup-page ::-moz-input-placeholder {
   color: rgba(255, 255, 255, 0.6); }
 
-.login-page .login-error, .sign-up-page .login-error {
+.signin-page .error, .signup-page .error {
   font-size: 14px;
   color: #f00; }
+
+a {
+  cursor: pointer; }
 
 body {
   margin: 0;

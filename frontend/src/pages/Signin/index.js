@@ -13,7 +13,7 @@ class SignIn extends Component {
   handleLogIn = () => {
     this.setState({loading: true});
     login(
-      this.loginInput.value,
+      this.emailInput.value,
       this.passInput.value
     ).then( () => {
       this.props.history.push('/');
@@ -28,25 +28,34 @@ class SignIn extends Component {
     }
   }
 
+  signupRedirect = () => {
+    this.props.history.push('/signup');
+  }
+
   render() {
     const error = this.state.invalidData ?
-      <span className="login-error"> Invalid login or password</span> :
+      <span className="error"> Invalid login or password</span> :
       '';
     return (
-      <div className="login-page" onKeyUp={this.handleKeUp}>
+      <div className="signin-page" onKeyUp={this.handleKeUp}>
         <div className="auth-body"></div>
         <div className="grad"></div>
         <div className="header">
-          <div>Mercury<span>Login</span></div>
+          <div>Mercury<span>Signin</span></div><br/>
+          <span>Don't have an account?
+            <a onClick={this.signupRedirect}>
+              Sign Up
+            </a>
+          </span>
         </div>
         <br/>
         <div className="login">
           <input
             ref={(ref) => {
-              this.loginInput = ref;
+              this.emailInput = ref;
             }}
             type="text"
-            placeholder="username"
+            placeholder="email"
             name="user"/><br/>
           <input
             ref={(ref) => {

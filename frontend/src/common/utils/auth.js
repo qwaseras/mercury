@@ -8,9 +8,19 @@ export async function login(username, password) {
   const response = await http.post('/authenticate/', {
     email: username,
     password: password,
-  })
+  });
   localStorage.setItem(ID_TOKEN_KEY, response.data.auth_token);
 }
+
+export async function signup(email, nickname, password, passwordConfirmation) {
+  await http.post('/users', {
+    email: email,
+    nickname: nickname,
+    password: password,
+    password_confirmation: passwordConfirmation,
+  });
+}
+
 
 export function getUserEmail() {
   const jwt = jwtDecode(getIdToken());

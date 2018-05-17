@@ -1,4 +1,4 @@
-.login-page, .sign-up-page {
+.signin-page, .signup-page {
   .auth-body{
   	position: absolute;
   	top: -20px;
@@ -47,12 +47,15 @@
 
   .login{
   	position: absolute;
-  	top: calc(50% - 75px);
-  	left: calc(50% - 50px);
-  	height: 150px;
-  	width: 350px;
+  	top: calc(50% - 85px);
+  	left: calc(50% - 10px);
+  	height: auto;
+  	width: 650px;
   	padding: 10px;
   	z-index: 2;
+    input, btn{
+      margin: 10px 0;
+    }
     input[type=text]{
       width: 250px;
       height: 30px;
@@ -81,7 +84,6 @@
       font-size: 16px;
       font-weight: 400;
       padding: 4px;
-      margin-top: 10px;
       &:focus{
         outline: none;
         border: 1px solid rgba(255,255,255,0.9);
@@ -100,7 +102,6 @@
       font-size: 16px;
       font-weight: 400;
       padding: 6px;
-      margin-top: 10px;
       &:hover{
         opacity: 0.8;
       }
@@ -120,7 +121,7 @@
   ::-moz-input-placeholder{
      color: rgba(255,255,255,0.6);
   }
-  .login-error{
+  .error{
     font-size: 14px;
     color: #f00;
   }

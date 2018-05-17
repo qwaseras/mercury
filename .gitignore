@@ -1,9 +1,9 @@
 # frontend
 frontend/node_modules
-.log
-
 #backend
 backend/config/database.yml
 backend/config/initializers/secret_token.rb
 .secret
 .byebug_history
+backend/log
+backend/tmp
