@@ -1,24 +1,8 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+using Ruby 2.4.1, rails 5.1.6, MySql 14.14
+first run: 
+- create config/database.yml file (copy .example and change username and password)
+- run `rails db:create db:migrate`
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+to start server:
+-bin/rails s
