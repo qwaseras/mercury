@@ -5,4 +5,4 @@ using Ruby 2.4.1, rails 5.1.6, MySql 14.14
 - run `rails db:create db:migrate`
 
 to start server:
--bin/rails s
+- bin/rails s
