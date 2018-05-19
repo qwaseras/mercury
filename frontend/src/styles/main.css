@@ -113,6 +113,9 @@
   font-size: 14px;
   color: #f00; }
 
+.signin-page a, .signup-page a {
+  color: blue !important; }
+
 a {
   cursor: pointer; }
 
@@ -172,8 +175,7 @@ a {
   text-decoration: none;
   outline: none;
   font-size: 14px;
-  font-family: "helveticaneuemedium";
-  color: #4f4d4d; }
+  font-family: "helveticaneuemedium"; }
   a:hover, a:focus {
     font-family: "helveticaneuemedium";
     -webkit-transition-duration: 500ms;
