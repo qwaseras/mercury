@@ -16,7 +16,7 @@ class SignIn extends Component {
     const pass = this.passInput.value;
     signup(
       this.emailInput.value,
-      this.nickname,
+      this.nicknameInput.value,
       this.passInput.value,
       this.passConfirmInput.value
     ).then( async () => {

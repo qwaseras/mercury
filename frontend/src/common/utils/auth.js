@@ -27,10 +27,16 @@ export function getUserEmail() {
   return jwt.email;
 }
 
+export function getUserNickname() {
+  const jwt = jwtDecode(getIdToken());
+  return jwt.nickname;
+}
+
 
 export function logout() {
   clearIdToken();
   clearAccessToken();
+  window.location.reload();
 }
 
 

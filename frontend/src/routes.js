@@ -12,9 +12,7 @@ export default ({dispatch, getState}) => (
   <Switch>
     <Route
       exact path="/"
-      render={(props) => (isLoggedIn() ?
-        <Home {...props} /> :
-        <Redirect to="/signin" />)}
+      render={(props) => <Home {...props} />}
     />
     <Route
       exact path="/dashboard"

@@ -7,7 +7,11 @@ class AuthenticateUser
   end
 
   def call
-    JsonWebToken.encode(user_id: user.id, email: user.email) if user
+    JsonWebToken.encode(
+      user_id: user.id,
+      email: user.email,
+      nickname: user.nickname
+      ) if user
   end
 
   private
