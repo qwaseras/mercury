@@ -5,7 +5,8 @@ def index
 end
 
  def create
-
+   blog = @current_user.blog.buld(blog_params)
+   blog.save
  end
 
  def show
@@ -13,9 +14,8 @@ end
 
   private
 
-  def user_params
-    params.require(:user)
-          .permit(:first_name, :last_name, :email, :nickname,
-                  :password, :password_confirmation)
+  def blog_params
+    params.require(:blog)
+          .permit(:title, :description)
   end
 end

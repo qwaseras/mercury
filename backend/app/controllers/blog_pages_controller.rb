@@ -3,7 +3,7 @@ class BlogPagesController < ApplicationController
 
   # GET /blog_pages
   def index
-    @blog_pages = BlogPage.all
+    @blog_pages = @current_user.blogs.find(params[:blog_id]).pages
 
     render json: @blog_pages
   end
