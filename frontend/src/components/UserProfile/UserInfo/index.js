@@ -162,8 +162,8 @@ export default class extends Component {
         </div>
         <h4>My Blogs</h4>
         {
-          this.props.blogs.map((blog) => (
-            <div className="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1000ms">
+          this.props.blogs.map((blog, index) => (
+            <div key={index} className="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1000ms">
               <div className="row">
                 <div className="col-12">
                   <div className="single-blog-thumbnail">
@@ -180,7 +180,14 @@ export default class extends Component {
                   <div className="single-blog-content mt-50">
                     <div className="line"></div>
                     <a className="post-tag">Lifestyle</a>
-                    <h4><a className="post-headline">{blog.title}</a></h4>
+                    <h4>
+                      <a
+                        onClick={() => this.props.history.push('/blog/'+blog.id)}
+                        className="post-headline"
+                      >
+                        {blog.title}
+                      </a>
+                    </h4>
                     <p>{blog.description}</p>
                   </div>
                 </div>

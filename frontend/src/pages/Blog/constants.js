@@ -1,0 +1,1 @@
+export const LOAD_BLOG = 'USER_PROFILE:LOAD_BLOG';

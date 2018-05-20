@@ -3,22 +3,19 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import Header from '../../components/Layout/Header';
-import UserInfo from '../../components/UserProfile/UserInfo';
 import {
-  loadUser,
-  loadUsersBlogs,
+  loadBlog,
 } from './actions';
 
-class UserProfile extends Component {
-  handleUserLoad = () => {
-    const nickname = this.props.match.params.nickname;
-    this.props.actions.loadUser(nickname);
-    this.props.actions.loadUsersBlogs(nickname);
+class BlogPage extends Component {
+  componentWillMount() {
+    const id = this.props.match.params.id;
+    this.props.actions.loadBlog(id);
   }
   render() {
     const {
-      user,
-      blogs,
+      blog,
+      pages,
     } = this.props;
     return (
       <div>
@@ -27,11 +24,9 @@ class UserProfile extends Component {
           hideImg={true}
           loadUser={this.handleUserLoad}
         />
-        <UserInfo
-          user={user}
-          history={this.props.history}
-          loadUser={this.handleUserLoad}
-          blogs={blogs}/>
+        <div className="container">
+          <h2>{blog.title}</h2>
+        </div>
       </div>
     );
   }
@@ -39,7 +34,7 @@ class UserProfile extends Component {
 
 function mapStateToProps(state) {
   return {
-    ...state.userProfile,
+    ...state.blog,
   };
 }
 
@@ -47,12 +42,11 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(
       {
-        loadUser,
-        loadUsersBlogs,
+        loadBlog,
       },
       dispatch
     ),
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(BlogPage);

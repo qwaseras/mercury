@@ -10,12 +10,13 @@ end
  end
 
  def show
+   render json: Blog.find(params[:id]), status: 200
  end
 
   private
 
   def blog_params
     params.require(:blog)
-          .permit(:title, :description)
+          .permit(:id, :title, :description)
   end
 end
