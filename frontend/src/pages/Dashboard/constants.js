@@ -1,2 +1,0 @@
-export const INCREASE = 'DASHBOARD:INCREASE';
-export const DECREASE = 'DASHBOARD:DECREASE';

@@ -159,6 +159,11 @@ export default class extends Component {
             </div>
           </div>
         </div>
+        {
+          this.props.blogs.map((blog) => (
+            <h4>{blog.title}</h4>
+          ))
+        }
       </div>
     );
   }

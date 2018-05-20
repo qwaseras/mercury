@@ -1,13 +1,13 @@
 import axios from 'axios';
 import APIConfig from './APIConfig';
-import {getAccessToken} from './auth';
+import {getIdToken} from './auth';
 
 function request(url, data, method) {
   return axios({
     method,
     url: APIConfig.apiUrl + url,
     data,
-    headers: {'Authorization': 'Bearer ' + getAccessToken()},
+    headers: {'Authorization': 'Bearer ' + getIdToken()},
   });
 }
 

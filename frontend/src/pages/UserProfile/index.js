@@ -4,19 +4,21 @@ import {connect} from 'react-redux';
 
 import Header from '../../components/Layout/Header';
 import UserInfo from '../../components/UserProfile/UserInfo';
-import {getUserNickname} from '../../common/utils/auth';
 import {
   loadUser,
+  loadUsersBlogs,
 } from './actions';
 
 class UserProfile extends Component {
   handleUserLoad = () => {
     const nickname = this.props.match.params.nickname;
     this.props.actions.loadUser(nickname);
+    this.props.actions.loadUsersBlogs(nickname);
   }
   render() {
     const {
       user,
+      blogs,
     } = this.props;
     return (
       <div>
@@ -25,7 +27,10 @@ class UserProfile extends Component {
           hideImg={true}
           loadUser={this.handleUserLoad}
         />
-        <UserInfo user={user} loadUser={this.handleUserLoad}/>
+        <UserInfo
+          user={user}
+          loadUser={this.handleUserLoad}
+          blogs={blogs}/>
       </div>
     );
   }
@@ -42,6 +47,7 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(
       {
         loadUser,
+        loadUsersBlogs,
       },
       dispatch
     ),
