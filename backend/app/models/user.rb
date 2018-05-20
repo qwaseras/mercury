@@ -7,4 +7,6 @@ class User < ApplicationRecord
  validates :nickname, uniqueness: true, length: 5..20, format: { without: /\s/ }
  validates :email, uniqueness: true
  validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
+
+ has_many :blogs
 end
