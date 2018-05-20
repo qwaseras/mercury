@@ -1,6 +1,6 @@
 import React from 'react';
 import {isLoggedIn, getUserNickname, logout} from '../../../common/utils/auth';
-export default ({history, hideImg}) => (
+export default ({history, hideImg, loadUser}) => (
   <div>
     <div className="subscribe-newsletter-area">
       <div className="modal fade" id="subsModal" tabindex="-1" role="dialog" aria-labelledby="subsModal" aria-hidden="true">
@@ -85,9 +85,10 @@ export default ({history, hideImg}) => (
                     {
                       isLoggedIn() ?
                         <li>
-                          <a onClick={() => (
-                            history.push('/profile/'+ getUserNickname())
-                          )}>
+                          <a onClick={() => {
+                            loadUser();
+                            history.push('/profile/'+ getUserNickname());
+                          }}>
                         My Profile
                           </a>
                         </li> : ''

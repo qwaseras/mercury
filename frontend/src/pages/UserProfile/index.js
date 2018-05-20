@@ -20,7 +20,11 @@ class UserProfile extends Component {
     } = this.props;
     return (
       <div>
-        <Header history={this.props.history} hideImg={true}/>
+        <Header
+          history={this.props.history}
+          hideImg={true}
+          loadUser={this.handleUserLoad}
+        />
         <UserInfo user={user} loadUser={this.handleUserLoad}/>
       </div>
     );

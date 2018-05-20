@@ -2,11 +2,7 @@ class UsersController < ApplicationController
  skip_before_action :authenticate_request
 
  def create
-   user = User.new
-   user.first_name = params[:first_name]
-   user.last_name = params[:last_name]
-   user.email = params[:email]
-   user.nickname = params[:nickname]
+   user = User.new(user_params)
    user.password = params[:password]
    user.password_confirmation = params[:password_confirmation]
    if user.save
@@ -25,4 +21,12 @@ class UsersController < ApplicationController
      render json: { error: 'user not found' }, status: 204
    end
  end
+
+  private
+
+  def user_params
+    params.require(:user)
+          .permit(:first_name, :last_name, :email, :nickname,
+                  :password, :password_confirmation)
+  end
 end
