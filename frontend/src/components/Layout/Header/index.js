@@ -86,8 +86,7 @@ export default ({history, hideImg, loadUser}) => (
                       isLoggedIn() ?
                         <li>
                           <a onClick={() => {
-                            loadUser();
-                            history.push('/profile/'+ getUserNickname());
+                            history.push('/profile');
                           }}>
                         My Profile
                           </a>
