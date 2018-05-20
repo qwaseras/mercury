@@ -26,6 +26,14 @@ class BlogPage extends Component {
         />
         <div className="container">
           <h2>{blog.title}</h2>
+          <a onClick={() => (
+            this.props.history.push('/add-page/' + blog.id)
+          )}>add a page</a>
+          {
+            pages.map((page) => (
+              <div className="content" dangerouslySetInnerHTML={{__html: page.content}}></div>
+            ))
+          }
         </div>
       </div>
     );

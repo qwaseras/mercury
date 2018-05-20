@@ -1,1 +1,1 @@
-export const LOAD_BLOG = 'USER_PROFILE:LOAD_BLOG';
+export const LOAD_BLOG = 'BLOG:LOAD_BLOG';

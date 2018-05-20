@@ -3,7 +3,7 @@ import {isLoggedIn, getUserNickname, logout} from '../../../common/utils/auth';
 export default ({history, hideImg, loadUser}) => (
   <div>
     <div className="subscribe-newsletter-area">
-      <div className="modal fade" id="subsModal" tabindex="-1" role="dialog" aria-labelledby="subsModal" aria-hidden="true">
+      <div className="modal fade" id="subsModal" tabIndex="-1" role="dialog" aria-labelledby="subsModal" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
