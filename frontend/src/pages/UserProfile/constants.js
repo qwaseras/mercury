@@ -1,0 +1,1 @@
+export const LOAD_USER = 'USER_PROFILE:LOAD_USER';

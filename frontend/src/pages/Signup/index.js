@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {PulseLoader} from 'react-spinners';
 import {signup, login} from '../../common/utils/auth';
 
-class SignIn extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +15,8 @@ class SignIn extends Component {
     const email = this.emailInput.value;
     const pass = this.passInput.value;
     signup(
+      this.firstNameInput.value,
+      this.lastNameInput.value,
       this.emailInput.value,
       this.nicknameInput.value,
       this.passInput.value,
@@ -58,6 +60,26 @@ class SignIn extends Component {
         <div className="login">
           <input
             ref={(ref) => {
+              this.firstNameInput = ref;
+            }}
+            type="text"
+            placeholder="first name"
+            name="user"/>
+          <span className="error">
+            {error.email ? error.email[0] : ''}
+          </span><br/>
+          <input
+            ref={(ref) => {
+              this.lastNameInput = ref;
+            }}
+            type="text"
+            placeholder="last name"
+            name="user"/>
+          <span className="error">
+            {error.email ? error.email[0] : ''}
+          </span><br/>
+          <input
+            ref={(ref) => {
               this.emailInput = ref;
             }}
             type="text"
@@ -72,7 +94,8 @@ class SignIn extends Component {
             }}
             type="text"
             placeholder="nickname"
-            name="user"/>
+            name="user"
+            maxlength="20"/>
           <span className="error">
             {error.nickname ? error.nickname[0] : ''}
           </span><br/>
@@ -112,4 +135,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default SignUp;

@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
  def create
    user = User.new
+   user.first_name = params[:first_name]
+   user.last_name = params[:last_name]
    user.email = params[:email]
    user.nickname = params[:nickname]
    user.password = params[:password]
@@ -16,6 +18,11 @@ class UsersController < ApplicationController
  end
 
  def show
-
+   user = User.find_by_nickname(params[:nickname])
+   if user
+     render json: user
+   else
+     render json: { error: 'user not found' }, status: 204
+   end
  end
 end

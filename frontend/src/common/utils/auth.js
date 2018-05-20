@@ -12,8 +12,10 @@ export async function login(username, password) {
   localStorage.setItem(ID_TOKEN_KEY, response.data.auth_token);
 }
 
-export async function signup(email, nickname, password, passwordConfirmation) {
+export async function signup(firstName, lastName, email, nickname, password, passwordConfirmation) {
   await http.post('/users', {
+    first_name: firstName,
+    last_name: lastName,
     email: email,
     nickname: nickname,
     password: password,

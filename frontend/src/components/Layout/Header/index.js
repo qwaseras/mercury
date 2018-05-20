@@ -1,6 +1,6 @@
 import React from 'react';
 import {isLoggedIn, getUserNickname, logout} from '../../../common/utils/auth';
-export default ({history}) => (
+export default ({history, hideImg}) => (
   <div>
     <div className="subscribe-newsletter-area">
       <div className="modal fade" id="subsModal" tabindex="-1" role="dialog" aria-labelledby="subsModal" aria-hidden="true">
@@ -46,17 +46,21 @@ export default ({history}) => (
         </div>
       </div>
 
-      <div className="logo-area text-center">
-        <div className="container h-100">
-          <div className="row h-100 align-items-center">
-            <div className="col-12">
-              <a className="original-logo">
-                <img src="https://fontmeme.com/permalink/180519/519695b392528dd4bf03cbe5ebc760e6.png" alt="mercury" border="0"/>
-              </a>
+      {
+        hideImg ? '' : (
+          <div className="logo-area text-center">
+            <div className="container h-100">
+              <div className="row h-100 align-items-center">
+                <div className="col-12">
+                  <a className="original-logo">
+                    <img src="https://fontmeme.com/permalink/180519/519695b392528dd4bf03cbe5ebc760e6.png" alt="mercury" border="0"/>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        )
+      }
 
       <div className="original-nav-area" id="stickyNav">
         <div className="classy-nav-container breakpoint-off">
@@ -78,6 +82,16 @@ export default ({history}) => (
 
                 <div className="classynav">
                   <ul>
+                    {
+                      isLoggedIn() ?
+                        <li>
+                          <a onClick={() => (
+                            history.push('/profile/'+ getUserNickname())
+                          )}>
+                        My Profile
+                          </a>
+                        </li> : ''
+                    }
                     <li><a onClick={() => history.push('/')}>Home</a></li>
                     <li><a>Categories</a></li>
                     <li><a onClick={() => history.push('/about')}>About Us</a></li>

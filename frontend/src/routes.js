@@ -3,11 +3,11 @@ import {Route, Switch, Redirect} from 'react-router';
 
 import Home from './pages/Home';
 import About from './pages/About';
-import Dashboard from './pages/Dashboard';
 import Signin from './pages/Signin';
+import UserProfile from './pages/UserProfile';
 import Signup from './pages/Signup';
 
-import {isLoggedIn} from './common/utils/auth';
+import {isLoggedIn, getUserNickname} from './common/utils/auth';
 
 export default ({dispatch, getState}) => (
   <Switch>
@@ -20,10 +20,16 @@ export default ({dispatch, getState}) => (
       render={(props) => <About {...props} />}
     />
     <Route
-      exact path="/dashboard"
+      exact path="/profile/:nickname"
       render={(props) => (isLoggedIn() ?
-        <Dashboard {...props} /> :
-        <Redirect to="/signin" />)}
+        <UserProfile {...props} /> :
+        <Redirect to="/" />)}
+    />
+    <Route
+      exact path="/profile"
+      render={(props) => (isLoggedIn() ?
+        <Redirect to={'/profile/' + getUserNickname()} /> :
+        <Redirect to="/" />)}
     />
     <Route exact path="/signin" component={Signin} />
     <Route exact path="/signin" component={Signin} />
