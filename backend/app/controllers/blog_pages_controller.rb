@@ -20,7 +20,6 @@ class BlogPagesController < ApplicationController
     if @blog_page.save
       render json: @blog_page, status: :created, location: @blog_page
     else
-      byebug
       render json: @blog_page.errors, status: :unprocessable_entity
     end
   end

@@ -1,24 +1,24 @@
 import {
-  SET_BLOG_ID,
   SET_PAGE_CONTENT,
+  LOAD_BLOG,
 } from './constants';
 
 const initialState = {
-  blogId: 0,
+  blog: {},
   pageContent: '',
 };
 
 export function reducer(state = initialState, action) {
   switch (action.type) {
-  case SET_BLOG_ID:
-    return {
-      ...state,
-      blogId: action.data.blogId,
-    };
   case SET_PAGE_CONTENT:
     return {
       ...state,
       pageContent: action.data.content,
+    };
+  case LOAD_BLOG:
+    return {
+      ...state,
+      blog: action.data.blog,
     };
   default:
     return state;

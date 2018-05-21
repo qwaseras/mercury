@@ -1,7 +1,8 @@
 class BlogsController < ApplicationController
 
 def index
-  render json: @current_user.blogs, status: 200
+  render json: User.find_by_nickname(params[:nickname]).blogs,
+         status: 200
 end
 
  def create

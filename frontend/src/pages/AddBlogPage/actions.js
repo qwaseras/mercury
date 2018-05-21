@@ -1,26 +1,30 @@
 import {
-  SET_BLOG_ID,
   SET_PAGE_CONTENT,
-  CREAT_PAGE,
+  LOAD_BLOG,
 } from './constants';
 
 import http from '../../common/utils/http';
 
-export function setBlogId(id) {
-  return (dispatch) => dispatch({type: SET_BLOG_ID, data: {blogId: id}});
-}
-
 export function setPageContent(content) {
-  return (dispatch) => dispatch({type: SET_PAGE_CONTENT, data: {content: content}});
+  return (dispatch) => dispatch({
+    type: SET_PAGE_CONTENT,
+    data: {content: content},
+  });
 }
 
 export function createPage() {
   return async (dispatch, getState) => {
     const state = getState().blogPage;
     await http.post('/blog_pages', {
-      blog_id: state.blogId,
+      blog_id: state.blog.id,
       title: 'blog page',
       content: state.pageContent,
     } );
+  };
+}
+export function loadBlog(id) {
+  return async (dispatch) => {
+    const blog = await http.get('/blogs/' + id );
+    dispatch({type: LOAD_BLOG, data: {blog: blog.data}});
   };
 }

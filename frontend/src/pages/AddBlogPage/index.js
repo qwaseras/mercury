@@ -4,9 +4,10 @@ import {connect} from 'react-redux';
 
 import Header from '../../components/Layout/Header';
 import Editor from '../../components/AddBlogPage/Editor';
-import APIConfig from '../../common/utils/APIConfig';
+import {getUserId} from '../../common/utils/auth';
+
 import {
-  setBlogId,
+  loadBlog,
   setPageContent,
   createPage,
 } from './actions';
@@ -14,7 +15,10 @@ import {
 class AddBlogPage extends Component {
   componentWillMount() {
     const id = this.props.match.params.blogId;
-    id ? this.props.actions.setBlogId(id) : this.props.history.goBack();
+    this.props.actions.loadBlog(id);
+    if (getUserId() !== this.props.blog.user_id) {
+      this.props.history.goBack();
+    } ;
   }
   handlePageCreate = async () => {
     await this.props.actions.createPage();
@@ -22,9 +26,7 @@ class AddBlogPage extends Component {
   }
   render() {
     const {
-      pageContent,
       actions: {
-        createPage,
         setPageContent,
       },
     } = this.props;
@@ -39,7 +41,7 @@ class AddBlogPage extends Component {
           <a onClick={() => this.handlePageCreate()}>add page</a>
           <Editor
             id="editor"
-            onEditorChange={this.props.actions.setPageContent}
+            onEditorChange={setPageContent}
           />
         </div>
       </div>
@@ -57,7 +59,7 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(
       {
-        setBlogId,
+        loadBlog,
         setPageContent,
         createPage,
       },

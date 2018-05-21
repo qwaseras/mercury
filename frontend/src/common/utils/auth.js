@@ -34,6 +34,10 @@ export function getUserNickname() {
   return jwt.nickname;
 }
 
+export function getUserId() {
+  const jwt = jwtDecode(getIdToken());
+  return jwt.id;
+}
 
 export function logout() {
   clearIdToken();
