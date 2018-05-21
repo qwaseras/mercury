@@ -1,0 +1,1 @@
+export const LOAD_BLOG_PAGE = 'ADD_BLOG_PAGE:LOAD_BLOG_PAGE';

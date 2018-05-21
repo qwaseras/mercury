@@ -8,6 +8,7 @@ import UserProfile from './pages/UserProfile';
 import Signup from './pages/Signup';
 import Blog from './pages/Blog';
 import AddBlogPage from './pages/AddBlogPage';
+import BlogPage from './pages/BlogPage';
 
 import {isLoggedIn, getUserNickname} from './common/utils/auth';
 
@@ -45,7 +46,14 @@ export default ({dispatch, getState}) => (
         <AddBlogPage {...props}/> :
         <Redirect to="/" />)}
     />
+    <Route
+      exact path="/blog-page/:pageId"
+      render={(props) => (isLoggedIn() ?
+        <BlogPage {...props}/> :
+        <Redirect to="/" />)}
+    />
     <Route exact path="/signin" component={Signin} />
     <Route exact path="/signup" component={Signup} />
+    <Redirect to="/" />
   </Switch>
 );

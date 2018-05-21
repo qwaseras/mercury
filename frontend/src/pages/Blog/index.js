@@ -30,7 +30,7 @@ class BlogPage extends Component {
         <div className="container">
           <h2>{blog.title}</h2>
           {
-            getUserId === blog.user_id ? (
+            getUserId() === blog.user_id ? (
               <a onClick={() => (
                 this.props.history.push({pathname: '/add-page/' + blog.id})
               )}>add a page</a>
@@ -55,7 +55,13 @@ class BlogPage extends Component {
                     <div className="single-blog-content">
                       <div className="line"></div>
                       <a className="post-tag">Lifestyle</a>
-                      <h4><a className="post-headline">{page.title}</a></h4>
+                      <h4>
+                        <a
+                          onClick={() => this.props.history.push('/blog-page/' + page.id)}
+                          className="post-headline">
+                          {page.title}
+                        </a>
+                      </h4>
                       <p>{page.description}</p>
                       <div className="post-meta">
                         <p>By <a>james smith</a></p>

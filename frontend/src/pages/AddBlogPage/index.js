@@ -13,12 +13,12 @@ import {
 } from './actions';
 
 class AddBlogPage extends Component {
-  componentWillMount() {
+  async componentWillMount() {
     const id = this.props.match.params.blogId;
-    this.props.actions.loadBlog(id);
+    await this.props.actions.loadBlog(id);
     if (getUserId() !== this.props.blog.user_id) {
       this.props.history.goBack();
-    } ;
+    };
   }
   handlePageCreate = async () => {
     await this.props.actions.createPage();
@@ -51,7 +51,7 @@ class AddBlogPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    ...state.blogPage,
+    ...state.addBlogPage,
   };
 }
 

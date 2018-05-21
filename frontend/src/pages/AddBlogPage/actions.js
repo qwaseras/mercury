@@ -14,7 +14,7 @@ export function setPageContent(content) {
 
 export function createPage() {
   return async (dispatch, getState) => {
-    const state = getState().blogPage;
+    const state = getState().addBlogPage;
     await http.post('/blog_pages', {
       blog_id: state.blog.id,
       title: 'blog page',
