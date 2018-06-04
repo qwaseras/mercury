@@ -3,25 +3,20 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import Header from '../../components/Layout/Header';
-import Editor from '../../components/AddBlogPage/Editor';
+import Editor from '../../components/AddBlog/Editor';
 import {getUserId} from '../../common/utils/auth';
 
 import {
-  loadBlog,
-  setPageContent,
-  createPage,
+  createBlog,
 } from './actions';
 
-class AddBlogPage extends Component {
-  async componentWillMount() {
-    const id = this.props.match.params.blogId;
-    await this.props.actions.loadBlog(id);
-    if (getUserId() !== this.props.blog.user_id) {
-      this.props.history.goBack();
-    };
+class AddBlog extends Component {
+  state = {
+    title: '',
+    description: '',
   }
-  handlePageCreate = async () => {
-    await this.props.actions.createPage();
+  handleBlogCreate = async () => {
+    await this.props.actions.createBlog(this.state.title, this.state.description);
     this.props.history.goBack();
   }
   render() {
@@ -38,13 +33,15 @@ class AddBlogPage extends Component {
           loadUser={this.handleUserLoad}
         />
         <div className="container">
-          <input type="text" id="page-title" placeholder="Enter page title"/>
+          <h4> Blog title: </h4>
+          <input onChange={(e) => this.setState({title: e.target.value})} type="text" id="page-title"/>
+          <h4> Blog description: </h4>
           <Editor
             id="editor"
-            onEditorChange={setPageContent}
+            onEditorChange={(content) => this.setState({description: content})}
           />
           <button className="btn add-page" onClick={() => this.props.history.goBack()}>Cancel</button>
-          <button className="btn add-page" onClick={() => this.handlePageCreate()}>Save</button>
+          <button className="btn add-page" onClick={() => this.handleBlogCreate()}>Create</button>
         </div>
       </div>
     );
@@ -53,7 +50,7 @@ class AddBlogPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    ...state.addBlogPage,
+    ...state.addBlog,
   };
 }
 
@@ -61,13 +58,11 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(
       {
-        loadBlog,
-        setPageContent,
-        createPage,
+        createBlog,
       },
       dispatch
     ),
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddBlogPage);
+export default connect(mapStateToProps, mapDispatchToProps)(AddBlog);

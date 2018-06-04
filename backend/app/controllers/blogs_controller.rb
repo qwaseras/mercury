@@ -6,8 +6,12 @@ def index
 end
 
  def create
-   blog = @current_user.blog.buld(blog_params)
-   blog.save
+   blog = @current_user.blogs.build(blog_params)
+   if blog.save
+     render status: 200
+   else
+     render status: 400
+   end
  end
 
  def show
@@ -17,7 +21,6 @@ end
   private
 
   def blog_params
-    params.require(:blog)
-          .permit(:id, :title, :description)
+    params.require(:blog).permit(:title, :description)
   end
 end

@@ -1,0 +1,1 @@
+export const CREATE_BLOG = 'ADD_BLOG:CREATE_BLOG';

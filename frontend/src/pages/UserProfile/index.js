@@ -12,8 +12,11 @@ import {
 class UserProfile extends Component {
   handleUserLoad = () => {
     const nickname = this.props.match.params.nickname;
-    this.props.actions.loadUser(nickname);
-    this.props.actions.loadUsersBlogs(nickname);
+    this.props.actions.loadUser(nickname).then(() => {
+      this.props.actions.loadUsersBlogs(nickname);
+    }).catch(()=> {
+      this.props.history.push('/');
+    });
   }
   render() {
     const {

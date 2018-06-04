@@ -67,9 +67,7 @@ export default ({history, hideImg, loadUser}) => (
           <div className="container">
             <nav className="classy-navbar justify-content-between">
 
-              <div className="subscribe-btn">
-                <a className="btn subscribe-btn" data-toggle="modal" data-target="#subsModal">Subscribe</a>
-              </div>
+              <div></div>
 
               <div className="classy-navbar-toggler">
                 <span className="navbarToggler"><span></span><span></span><span></span></span>

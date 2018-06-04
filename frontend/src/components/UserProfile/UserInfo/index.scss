@@ -4,11 +4,11 @@
 
 /* -- color classes -- */
 .coralbg {
-    background-color: #FA396F;
+    background-color: #0D0D0D;
 }
 
 .coral {
-    color: #FA396f;
+    color: #ODODOD;
 }
 
 .turqbg {
@@ -220,4 +220,10 @@ div.user-menu div.user-menu-content:not(.active){
     .user-image {
         max-height: 400px;
     }
+}
+
+.blogs-title{
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
 }

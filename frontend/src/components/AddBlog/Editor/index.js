@@ -33,6 +33,7 @@ class TinyEditorComponent extends Component {
       <textarea
         id={this.props.id}
         value={this.props.content}
+        onChange={(e) => console.log(e)}
       />
     );
   }

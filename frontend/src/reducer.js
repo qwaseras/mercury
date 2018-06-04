@@ -7,6 +7,7 @@ import {reducer as userProfile} from './pages/UserProfile/reducer';
 import {reducer as blog} from './pages/Blog/reducer';
 import {reducer as addBlogPage} from './pages/AddBlogPage/reducer';
 import {reducer as blogPage} from './pages/BlogPage/reducer';
+import {reducer as addBlog} from './pages/AddBlog/reducer';
 
 
 export default combineReducers({
@@ -14,6 +15,7 @@ export default combineReducers({
   userProfile,
   blog,
   addBlogPage,
+  addBlog,
   blogPage,
   routing: routerReducer,
 });
